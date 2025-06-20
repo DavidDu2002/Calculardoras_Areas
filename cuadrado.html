@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Área del Cuadrado</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', sans-serif;
+            background: url('https://images.unsplash.com/photo-1503264116251-35a269479413?auto=format&fit=crop&w=1400&q=80') no-repeat center center fixed;
+            background-size: cover;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .calculadora {
+            background: rgba(0, 0, 0, 0.85);
+            padding: 30px;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.6);
+            width: 320px;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+        }
+
+        input {
+            width: 80%;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 10px;
+            border: none;
+            font-size: 16px;
+        }
+
+        button {
+            padding: 12px 20px;
+            background-color: #1abc9c;
+            border: none;
+            border-radius: 10px;
+            font-size: 16px;
+            cursor: pointer;
+            color: white;
+            margin-top: 10px;
+        }
+
+        button:hover {
+            background-color: #16a085;
+        }
+
+        #resultado {
+            margin-top: 20px;
+            font-weight: bold;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+    <div class="calculadora">
+        <h1>Área del Cuadrado</h1>
+        <label for="lado">Longitud del lado (cm):</label><br>
+        <input type="number" id="lado" placeholder="Ingresa el lado" step="any"><br>
+        <button onclick="calcular()">Calcular Área</button>
+        <div id="resultado"></div>
+    </div>
+
+    <script>
+        function calcular() {
+            const lado = parseFloat(document.getElementById('lado').value);
+            if (!isNaN(lado) && lado > 0) {
+                const area = lado * lado;
+                document.getElementById('resultado').innerText = `El área es: ${area} cm²`;
+            } else {
+                document.getElementById('resultado').innerText = "Por favor ingresa un número válido.";
+            }
+        }
+    </script>
+</body>
+</html>
